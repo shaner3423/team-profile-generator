@@ -1,6 +1,6 @@
 //Dependencies
 const inquirer = require('inquirer');
-const fs = ('fs');
+const fs = require('fs');
 const finalHTML = require('./src/page-template')
 
 //Concstructors
@@ -236,18 +236,18 @@ function initApplication() {
             addTeam();
         })
     }
-
-    function createWebPage() {
-        //create dist directory for index.html if it doesn't exist
-        fs.writeFileSync('./dist/index.html', finalHTML, err => {
-            if (err) {
-                console.log(err);
-                return;
-            }
-        });
-    }
-
-    addManager();
 }
 
 initApplication();
+
+
+function createWebPage () {
+    fs.writeFile('./dist/index.html', finalHTML, err => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("You have successfully created your new index.html file.")
+        }
+    })
+}
+
