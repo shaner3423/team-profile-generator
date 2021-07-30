@@ -1,7 +1,7 @@
 //Dependencies
 const inquirer = require('inquirer');
 const fs = ('fs');
-const jest = ('jest');
+const finalHTML = require('./src/page-template')
 
 //Concstructors
 const Employee = require('./lib/Employee');
@@ -81,32 +81,32 @@ function initApplication() {
             idArray.push(answers.managerID);
             addTeam();
         });
+    }
 
-        function addTeam() {
-            inquirer.prompt([
-                {
-                    type: 'list',
-                    name: 'teamMemberChoices',
-                    message: "Please select the next team member you would like to add next?",
-                    choices: [
-                        "Engineer", "Intern", "Close Application"
-                    ]
-                }
-            ])
+    function addTeam() {
+        inquirer.prompt([
+            {
+                type: 'list',
+                name: 'teamMemberChoices',
+                message: "Please select the next team member you would like to add next?",
+                choices: [
+                    "Engineer", "Intern", "Close Application"
+                ]
+            }
+        ])
 
-            .then(userChoice => {
-                switch (userChoice.teamMemberChoices) {
-                    case "Engineer":
-                       return addEngineer();
-                       break;
-                    case "Intern":
-                        return addIntern();
-                        break;
-                    default: 
-                    generateHTML();
-               }    
-            });
-        }
+        .then(userChoice => {
+            switch (userChoice.teamMemberChoices) {
+                case "Engineer":
+                   return addEngineer();
+                   break;
+                case "Intern":
+                    return addIntern();
+                    break;
+                default: 
+                createWebPage();
+           }    
+        });
     }
 
     //prompt users for Engineer information
@@ -154,7 +154,7 @@ function initApplication() {
             },
             {
                 type: 'input',
-                name: 'managerGithub',
+                name: 'engineerGithub',
                 message: "What is the engineer's Github repo? (format: 1234567890",
                 validate: answer => {
                     if (answer) {
@@ -165,13 +165,13 @@ function initApplication() {
                     }
                 }
             }
-            .then(answers => {
-                const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, asnwers.engineerGithub);
-                teamArray.push(engineer);
-                idArray.push(answers.engineerID);
-                addTeam();
-            })
-        ]);
+        ])
+        .then(answers => {
+            const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGithub);
+            teamArray.push(engineer);
+            idArray.push(answers.engineerID);
+            addTeam();
+        })
     }
 
     //prompt user of Intern information
@@ -229,29 +229,23 @@ function initApplication() {
                     }
                 }
             }
-
-            .then(answers => {
-                const intern = new Intern(answers.internName, asnwers.internID, answers.internEmail, answers.internSchool);
-                teamArray.push(intern);
-                idArray.push(answers.internID);
-                addTeam();
-            })
-        ]);
+        ]) .then(answers => {
+            const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool);
+            teamArray.push(intern);
+            idArray.push(answers.internID);
+            addTeam();
+        })
     }
 
-    function generateHTML() {
+    function createWebPage() {
         //create dist directory for index.html if it doesn't exist
-
+        fs.writeFileSync('./dist/index.html', finalHTML, err => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+        });
     }
-    
-
-
-
-
-
-
-
-
 
     addManager();
 }
