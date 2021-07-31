@@ -4,7 +4,6 @@ const fs = require('fs');
 const finalHTML = require('./src/page-template')
 
 //Concstructors
-const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
@@ -155,7 +154,7 @@ function initApplication() {
             {
                 type: 'input',
                 name: 'engineerGithub',
-                message: "What is the engineer's Github repo? (format: 1234567890",
+                message: "What is the engineer's Github repo? (format: 1234567890)",
                 validate: answer => {
                     if (answer) {
                         return true;
@@ -236,6 +235,7 @@ function initApplication() {
             addTeam();
         })
     }
+    addManager();
 }
 
 initApplication();
