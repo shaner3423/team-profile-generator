@@ -7,6 +7,7 @@ test('creates an intern object', () => {
     expect(intern.name).toBe('Scotty');
 });
 
+
 test('set school with constructor', () => {
     const intern = new Intern();
     expect(intern.school).toEqual(expect.any(String));

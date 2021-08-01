@@ -5,6 +5,7 @@ test('creates a manager object', () => {
     const manager = new Manager('Linda');
 });
 
+
 test('set office number', () => {
     const testValue = 100;
     const manager = new Manager();
@@ -12,3 +13,4 @@ test('set office number', () => {
 });
 
 //can't get it to pass test - test should be passing and turning all green
+
