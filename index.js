@@ -9,6 +9,10 @@ const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
 
+// const dist_dir = path.resolve(__dirname, 'dist/')
+// const outputPath = path.join(dist_dir, 'index.html/');
+
+
 //create an empty array for team and id as place holders
 const teamArray = [];
 const idArray = [];
@@ -205,7 +209,7 @@ function initApplication() {
             {
                 type: 'input',
                 name: 'internEmail',
-                message: "What is the inter's email?",
+                message: "What is the intern's email?",
                 validate: answer => {
                     if (answer) {
                         return true;
@@ -235,19 +239,71 @@ function initApplication() {
             addTeam();
         })
     }
+
+    // function createWebPage() {
+    //     if (!fs.existsSync(dist_dir)) {
+    //         fs.mkdirSync(dist_dir)
+    //     }
+    //     console.log("Generating Your Team Profile.... ");
+    //     fs.writeFileSync(outputPath, finalHTML(teamArray));
+    // }
+  
     addManager();
 }
 
+
 initApplication();
 
+// when user chooses Close Applicaton, the application should close and the user should be able to go back to the home page
 
-function createWebPage () {
-    fs.writeFile('./dist/index.html', finalHTML, err => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("You have successfully created your new index.html file.")
-        }
-    })
-}
+
+
+
+
+
+
+
+
+
+//  //function to write the pageHTML to index.html
+//  const printPage = function (pageHTML) {
+//     fs.writeFile("./dist/index.html", pageHTML, (err) => {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         console.log("Generating Team Profile.....");
+//       }
+//     });
+//   };
+  
+//   //call getInfo => send team array to html format file => print formatted html to index.html
+  
+//   getInfo()
+//     .then(teamArray => {
+//       return finalHTML(teamArray);
+//     })
+//     .then((pageHTML) => {
+//       printPage(pageHTML);
+//     })
+//     .catch((err) => {
+//       if (err) {
+//         console.log(err);
+//       }3
+//     });
+
+
+
+
+
+
+
+// function createWebPage () {
+//     fs.writeFile('./dist/index.html', finalHTML, (err) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log("You have successfully created your new index.html file.")
+//         }
+//     });
+// };
 

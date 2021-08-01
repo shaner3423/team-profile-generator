@@ -58,7 +58,7 @@ const createTeamProfile = team => {
         `;
     };
 
-    // const html = [];
+    const html = [];
 
     html.push(team
         .filter(employee => employee.getRole() === 'Manager')
