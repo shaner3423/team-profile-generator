@@ -28,7 +28,7 @@ A Node.js command-line application that takes in information about employees on 
 
 
 ## Video Walkthrough 
-https://drive.google.com/file/d/1r6aWWzDivDHUAS6mrrvk2nEkuYzDf9hH/view
+https://drive.google.com/file/d/1r6aWWzDivDHUAS6mrrvk2nEkuYzDf9hH/view 
 
 ## Technologies Used
 
