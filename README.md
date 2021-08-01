@@ -22,8 +22,13 @@ A Node.js command-line application that takes in information about employees on 
 - When user click on the GitHub username, then that GitHub profile opens in a new tab
 
 ## Screenshot 
+<img width="1434" alt="Screen Shot 2021-08-01 at 12 10 08 AM" src="https://user-images.githubusercontent.com/54196239/127759252-56e30487-a4d4-4d18-a001-1a7e42a36514.png">
+<img width="1434" alt="Screen Shot 2021-08-01 at 12 24 13 AM" src="https://user-images.githubusercontent.com/54196239/127759256-1ceac14e-1007-42fc-9c74-a1c90e0b279e.png">
+
+
 
 ## Video Walkthrough 
+https://drive.google.com/file/d/1r6aWWzDivDHUAS6mrrvk2nEkuYzDf9hH/view 
 
 ## Technologies Used
 
@@ -36,6 +41,11 @@ A Node.js command-line application that takes in information about employees on 
 -Jest
 
 -Bootsrtap
+
+## Credits
+Dana Bottini
+
+https://github.com/dbottoni/
 
 ## Contributor
 

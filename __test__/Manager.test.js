@@ -5,15 +5,12 @@ test('creates a manager object', () => {
     const manager = new Manager('Linda');
 });
 
-// test('set office number with constructor', () => {
-//     const testValue = 100;
-//     const e = new Manager('Foo', 1, 'manager@email.com', testValue);
-//     expect(e.officeNumber).toBe(testValue);
-// });
 
-// test('get office number with getOfficeNumber() method', () => {
-//     const testValue = 100;
-//     const e = new Manager('Foo', 1, 'manager@email.com', testValue);
-//     expect(e.getOfficeNumber()).toBe(testValue);
-// });
+test('set office number', () => {
+    const testValue = 100;
+    const manager = new Manager();
+    expect(manager.officeNumber).toBe(testValue);
+});
+
+//can't get it to pass test - test should be passing and turning all green
 
